@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block head_js %}
+<script type="text/javascript" src="/static/ext-1.0/adapter/yui/yui-utilities.js"></script>
+<script type="text/javascript" src="/static/ext-1.0/adapter/yui/ext-yui-adapter.js"></script>
+<script type="text/javascript" src="/static/ext-1.0/ext-all-debug.js"></script>
+<script type="text/javascript" src="/static/js/extdjango.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/ext-1.0/resources/css/ext-all.css" />
+<link rel="stylesheet" type="text/css" href="/static/ext-1.0/resources/css/reset-min.css" />
+<link rel="stylesheet" type="text/css" href="/static/ext-1.0/resources/css/grid.css" />
+<link rel="stylesheet" type="text/css" href="/static/ext-1.0/resources/css/ytheme-aero.css" />
+<link rel="stylesheet" type="text/css" href="/static/ext-1.0/examples/examples.css" />
+<link rel="stylesheet" type="text/css" href="/static/ext-1.0/examples/grid/grid-examples.css" />
+<link rel="stylesheet" type="text/css" href="/static/js/pir.css" />
+<style>
+body { padding-top: 0px; padding-left: 15px;}
+.tab-content { display: none; }
+#tabs .x-tabs-item-body { display: none; padding: 10px; }
+</style>
+{% endblock %}
+{% block content %}
+<div>Ext Django newforms integration</div>
+<br/>
+<div>Unmimified Source:
+<ul>
+<li type="circle">javascript: <a href="/static/js/extdjango.js">extdjango.js</a></li>
+</ul>
+</div>
+<br/>
+<div>Stuff to know:
+<ul>
+<li type="disc">Firstname has extra server side validation rule: longer then 10 chars</li>
+<li type="disc">Email has extra server side validation rule: email addres must end with @extjs.com</li>
+<li type="disc">Company has a dynamicly inserted Vtype for client side validation</li>
+<li type="disc">Enable is the only non required field</li>
+<li type="disc">Read more in the information tab.</li>
+</ul>
+</div>
+
+	<div id="preview" style="visibility: hidden;">
+	    <div class="x-dlg-hd">Preview</div>
+	    <div class="x-dlg-bd">
+		<iframe id="center-iframe" frameborder="0" scrolling="auto" style="border: 0px none; height: 100%; width: 100%;" class="x-layout-inactive-content"></iframe>
+		<div id="center" class="x-layout-inactive-content">
+		</div>
+	    </div>
+	</div>
+	<div class="x-box-blue" style="width: 829px;">
+	    <div class="x-box-tl"><div class="x-box-tr"><div class="x-box-tc"></div></div></div>
+	    <div class="x-box-ml"><div class="x-box-mr"><div class="x-box-mc">
+		<h3 style="margin-bottom: 5px; text-align: center;">Ext Django newforms</h3>
+		<div id="tabs">
+		    <div id="extform" class="tab-content">
+			<div id="form-ct" style="height: 200px;"></div>
+		    </div>
+		    <div id="djangoform" class="tab-content">
+			<div style="height: 200px;">
+			    <form>
+			    <table>
+			    {{ form }}
+		    	    </table>
+			    <input type="submit" />
+			    </form>
+			</div>
+			<i><b>*</b> Django form is here as a reference. (does not work)</i>
+		    </div>
+		    <div id="info" class="tab-content">
+			<div style="height: 200px; padding-left: 10px;">
+			    <ul>
+			    <li type="square">Load ExtJS Form from the backend</li>
+			    <li type="square">Validate ExtJS Form by the backend</li>
+			    <li type="square">Backend can add config to the ExtJS Form</li>
+			    <li type="square">Backend can inject new vtypes into Ext.form.VTypes</li>
+			    <li type="square">Supports form config: allowBlank, maxLength, minValue, maxValue, fieldLabel, initial field values.</li>
+			    </ul>
+			</div>
+		    </div>
+		</div>
+	    </div></div></div>
+	    <div class="x-box-bl"><div class="x-box-br"><div class="x-box-bc"></div></div></div>
+	</div>
+	<br/>
+{% endblock %}
